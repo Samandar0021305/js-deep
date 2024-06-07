@@ -67,6 +67,20 @@ class Loadash {
              }
         };
         return arr;    
+    };
+    flattenDeep(arr = []){
+      const helperFlat =(arr = [])=>{
+         const result = [];
+            for(let item of arr){
+                if(Array.isArray(item) ){
+                     result.push(...helperFlat(item));
+                }else{
+                    result.push(item);
+                }
+            }
+            return result;
+       }
+       return helperFlat(arr)
     }
 }
 
@@ -77,4 +91,5 @@ const res1 = _.concat([3,4],0,[[5]],[[[9]]]);
 const res3 = _.difference([1, 2, 3, 4, 5, 5],[2, 3],[4, 6]);
 const res4 = _.drop([1, 2, 3, 4, 5],2);
 const res5 = _.fill([4, 6, 8, 10], '*', 1, 3);
-console.log(res5)
+const res6 = _.flattenDeep([1, [2, 3], [4, [5, 6]]])
+console.log(res6)
