@@ -73,7 +73,7 @@ class myArry {
         }
         this.nums = newArr;
         return popped;
-    }
+    };
 }
 
 const myArr = new myArry([1,2]);
