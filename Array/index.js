@@ -65,7 +65,14 @@ class myArry {
        this.nums = [...this.nums,num];
     };
     pop(){
-        
+        const n = this.nums.length
+        const popped = this.nums[n - 1];
+        const newArr = [];
+        for(let i = 0;i<n-1;i++){
+            newArr.push(this.nums[i])
+        }
+        this.nums = newArr;
+        return popped;
     }
 }
 
@@ -77,3 +84,6 @@ console.log(reducer)
 console.log(myArr.concat([3,4]))
 
 const val = myArr.join('data')
+
+console.log(myArr.pop())
+console.log(myArr.nums)
