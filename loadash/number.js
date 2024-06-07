@@ -12,4 +12,3 @@ class NumberLoadash {
 const _ = new NumberLoadash();
 
 const res = _.clamp(-10, -5, 5);
-console.log(res)
