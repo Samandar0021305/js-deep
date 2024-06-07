@@ -81,7 +81,7 @@ class Loadash {
             return result;
        }
        return helperFlat(arr)
-    }
+    };
 }
 
 const _ = new Loadash();
