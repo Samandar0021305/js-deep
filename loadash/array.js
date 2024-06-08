@@ -82,6 +82,42 @@ class Loadash {
        }
        return helperFlat(arr)
     };
+    head(arr){
+      if(!Array.isArray(arr) || !arr.length){
+         return undefined;
+      }
+      return arr[0];
+    }
+    initial(arr){
+        const newArr = [];
+        for(let i = 0; i < arr.length - 1; i++){
+          newArr.push(arr[i]);
+        }
+        return newArr
+     }
+     intersection(...args){
+        const set = new Set();
+        for(let i = 0; i < args[0].length;i++){
+          set.add(args[0][i]);
+        }
+
+        for(let i = 1;i<args.length;i++){
+          for(let item of args[i]){ 
+            if(!set.has(item))set.delete(item);
+          }
+        }
+
+        return Array.from(set);
+     }
+     join(arr = [],str){
+        if(!arr.length) return arr;
+        if(str === undefined) return arr.join(',');
+        let res = "";
+        for(let item of arr){
+          res+=`${item}${str}`
+        }
+        return res;
+     }
 }
 
 const _ = new Loadash();
@@ -91,5 +127,4 @@ const res1 = _.concat([3,4],0,[[5]],[[[9]]]);
 const res3 = _.difference([1, 2, 3, 4, 5, 5],[2, 3],[4, 6]);
 const res4 = _.drop([1, 2, 3, 4, 5],2);
 const res5 = _.fill([4, 6, 8, 10], '*', 1, 3);
-const res6 = _.flattenDeep([1, [2, 3], [4, [5, 6]]])
-console.log(res6)
+const res6 = _.flattenDeep([1, [2, 3], [4, [5, 6]]]);
